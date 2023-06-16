@@ -1,0 +1,62 @@
+#ifndef RAY_INCLUDE
+#define RAY_INCLUDE
+
+///////////////////////////////////////////
+// Headers
+///////////////////////////////////////////
+#include "../Shape.hpp"
+#include <cmath>
+
+///////////////////////////////////////////
+/// \brief In this context,
+///		the ray will be a segment for which we can set the distance
+///		from the beginning.
+///
+///////////////////////////////////////////
+class Ray final : public Shape
+{
+public:
+	///////////////////////////////////////////
+	/// \brief Default constructor
+	///
+	///////////////////////////////////////////
+	Ray();
+
+	///////////////////////////////////////////
+	/// \brief Constructor
+	/// 
+	/// \param start Start of the ray
+	/// \param end	 Relative to the second point the ray angle will be calculated
+	/// 
+	///////////////////////////////////////////
+	Ray(const Point2& start, const Point2& anotherPoint);
+
+	///////////////////////////////////////////
+	/// \brief Set the distance between start and new end
+	///
+	/// \param distance New distance
+	/// 
+	/// \see getDistance
+	///////////////////////////////////////////
+	void setDistance(double distance);
+
+	///////////////////////////////////////////
+	/// \brief Get the distance between start and current end
+	///
+	/// \return Current distance
+	/// 
+	/// \see setDistance
+	///////////////////////////////////////////
+	double getDistance() const;
+
+private:
+	///////////////////////////////////////////
+	// Member data
+	///////////////////////////////////////////
+	double m_distance;
+	double m_angle;
+	Line   m_line;
+};
+
+#endif // RAY_INCLUDE
+
